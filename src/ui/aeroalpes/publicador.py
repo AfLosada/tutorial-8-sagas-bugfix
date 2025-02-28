@@ -1,6 +1,8 @@
 import pulsar
 
-client = pulsar.Client('pulsar://localhost:6650')
+from .utils import consultar_schema_registry, obtener_schema_avro_de_diccionario, broker_host
+
+client = pulsar.Client(f'pulsar://{broker_host()}:6650')
 producer = client.create_producer('comandos-reservas')
 
 for i in range(10):
